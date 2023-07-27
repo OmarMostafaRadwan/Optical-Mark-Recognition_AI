@@ -4,14 +4,16 @@ from PIL import Image
 import cv2
 from img_gridder import get_row_image
 import json
+from answer_key import answer_key_setter
+
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
 
-tab1, tab2, tab3 = st.tabs(["Set Up", "Dog", "Owl"])
+tab1, tab2, tab3 = st.tabs(["SetUp Template", "Answer Key", "Owl"])
 
 # Upload an image and set some options for demo purposes
 with tab1:
-    st.header("Cropper Demo")
+    st.header("Template SetUp")
     img_file = st.sidebar.file_uploader(label='Upload a file', type=['png', 'jpg'])
     realtime_update = st.sidebar.checkbox(label="Update in Real Time", value=True)
     box_color = st.sidebar.color_picker(label="Box Color", value='#0000FF')
@@ -65,3 +67,10 @@ with tab1:
         #     ROI_list = json.load(f)
         # st.write(ROI_list[0][0])
         
+
+with tab2:
+    try:
+        answer_key_setter(Number_of_Column_Groups, num_rows=num_rows)
+        st.write(Number_of_Column_Groups)
+    except:
+        pass
