@@ -1,5 +1,6 @@
-import cv2
+# import cv2
 import numpy as np
+# from PIL import Image
 
 def get_row_image(img, num_columns, num_rows, row_number, roi):
     # Convert the image to a NumPy array
@@ -21,7 +22,7 @@ def get_row_image(img, num_columns, num_rows, row_number, roi):
 
     # Extract the specific row image from the ROI
     row_image = roi_img[row_start:row_end, :]
-
+    # row_image = Image.fromarray(row_image)
     return row_image
 
 

@@ -14,7 +14,7 @@ def answer_key_setter(num_columns, num_rows):
     columns = [generate_column_names(i) for i in range(num_columns)]
     data = [[f"-" for col in columns] for row in range(num_rows)]
     df = pd.DataFrame(data, columns=columns)
-    st.data_editor(df,width=1000,height=500)
+    return st.data_editor(df,width=1000,height=500)
     # return pd.DataFrame(data, columns=columns)
 
 # Example usage:
